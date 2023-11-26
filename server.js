@@ -8,17 +8,20 @@ import cors from "cors";
 
 const app = express();
 
-config({
-    path:'./data/config.env'
-})
+
 
 app.use(express.json())  //so that the servers knows we are using the JSON data
 app.use(cookieParser()) 
 app.use(cors({
-    origin:[process.env.FRONTEND_URL],
+    // origin:[process.env.FRONTEND_URL],
+    origin:"http://localhost:5173/",
     methods:["GET","POST","PUT","DELETE"],
     credentials:true
 }))
+
+config({
+    path:'./data/config.env'
+})
 
 app.use('/api/users',userRouter)
 app.use('/api/blogs',blogRouter)
