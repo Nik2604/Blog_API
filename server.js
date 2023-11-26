@@ -13,8 +13,7 @@ const app = express();
 app.use(express.json())  //so that the servers knows we are using the JSON data
 app.use(cookieParser()) 
 app.use(cors({
-    // origin:[process.env.FRONTEND_URL],
-    origin:"http://localhost:5173",
+    origin:[process.env.FRONTEND_URL],
     methods:["GET","POST","PUT","DELETE"],
     credentials:true
 }))
